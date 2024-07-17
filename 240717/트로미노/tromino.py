@@ -28,19 +28,20 @@ def four(i, j):
 
 # ㅣ 모양
 def five(i, j):
-    if i+1 >= n or i+2 >= n:
+    if i+1 > n or i+2 > n:
         return 0
     return graph[i][j]+graph[i+1][j]+graph[i+2][j]
 
 # - 모양
 def six(i, j):
-    if j+1 >= n or j+2 >= n:
+    if j+1 > n or j+2 > n:
         return 0
     return graph[i][j]+graph[i][j+1]+graph[i][j+2]
 
 max_value = 0
 for i in range(n):
     for j in range(n):
+        # print(six(i, j))
         max_value = max(max_value, one(i, j), two(i, j), three(i, j), four(i, j), five(i, j), six(i, j))
 
 print(max_value)
