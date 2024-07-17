@@ -4,7 +4,7 @@ graph = [list(map(int, input().split())) for _ in range(n)]
 
 # ㄴ모양
 def one(i, j):
-    if i+1 >= n or j+1 >= n:
+    if i+1 >= n or j+1 >= m:
         return 0
     return graph[i][j]+graph[i+1][j]+graph[i+1][j+1]
     
@@ -16,7 +16,7 @@ def two(i, j):
 
 # ㄱ 모양
 def three(i, j):
-    if i+1 >=n or j+1 >= n:
+    if i+1 >=n or j+1 >= m:
         return 0
     return graph[i][j]+graph[i][j+1]+graph[i+1][j+1]
 
@@ -28,20 +28,19 @@ def four(i, j):
 
 # ㅣ 모양
 def five(i, j):
-    if i+1 >= n or i+2 > n:
+    if i+1 >= n or i+2 >= n:
         return 0
     return graph[i][j]+graph[i+1][j]+graph[i+2][j]
 
 # - 모양
 def six(i, j):
-    if j+1 >= n or j+2 > n:
+    if j+1 >= m or j+2 >= m:
         return 0
     return graph[i][j]+graph[i][j+1]+graph[i][j+2]
 
 max_value = 0
 for i in range(n):
-    for j in range(n):
-        # print(six(i, j))
+    for j in range(m):
         max_value = max(max_value, one(i, j), two(i, j), three(i, j), four(i, j), five(i, j), six(i, j))
 
 print(max_value)
