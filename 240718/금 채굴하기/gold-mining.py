@@ -32,7 +32,7 @@ dx = [0, 0, 1, -1]
 dy = [1, -1, 0, 0]
 
 max_cnt = 0
-for k in range(n):
+for k in range(n+1):
     for i in range(n):  
         for j in range(n):
             gold = bfs(i, j, k)
