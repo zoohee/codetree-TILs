@@ -15,10 +15,12 @@ def bfs(i, j, k):
             nx = x + dx[d]
             ny = y + dy[d]
 
-            if 0 <= nx < n and 0 <= ny < n and not visited[nx][ny] and dist <= k:
+            if 0 <= nx < n and 0 <= ny < n and not visited[nx][ny] and dist+1 <= k:
                 cnt += graph[nx][ny]
                 visited[nx][ny] = True
                 que.append((nx, ny, dist+1))
+    # if i==2 and j==3:
+    #     print(visited)
     
     return cnt
 
@@ -36,7 +38,7 @@ for k in range(n):
             gold = bfs(i, j, k)
             if k*k+(k+1)*(k+1) <= gold*m:
                 max_cnt = max(max_cnt, gold)
-                # print(k, gold)
+                # print(i, j, k, gold)
         
 
 
