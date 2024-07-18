@@ -19,9 +19,6 @@ def bfs(i, j, k):
                 cnt += graph[nx][ny]
                 visited[nx][ny] = True
                 que.append((nx, ny, dist+1))
-
-    # if cnt == 23:
-    #     print(visited)
     
     return cnt
 
@@ -30,15 +27,14 @@ graph = [list(map(int, input().split())) for _ in range(n)]
 
 
 dx = [0, 0, 1, -1]
-dy = [1, 1, 0, 0]
-visited = [[False] * m for _ in range(n)]
+dy = [1, -1, 0, 0]
 
 max_cnt = 0
-for k in range(n+1):
+for k in range(n):
     for i in range(n):  
         for j in range(n):
             gold = bfs(i, j, k)
-            if k*k+(k+1)*(k+1) < gold*m:
+            if k*k+(k+1)*(k+1) <= gold*m:
                 max_cnt = max(max_cnt, gold)
                 # print(k, gold)
         
