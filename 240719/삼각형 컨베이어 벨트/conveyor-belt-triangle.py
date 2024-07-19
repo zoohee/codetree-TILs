@@ -5,6 +5,9 @@ for _ in range(3):
     graph += list(map(int, input().split()))
 
 def rotate():
+    if len(graph) < m:
+        return
+        
     temp = []
     for i in range(1, m+1):
         temp.append(graph[-i])
