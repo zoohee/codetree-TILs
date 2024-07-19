@@ -1,7 +1,7 @@
 n, m = map(int, input().split())
 
 graph = []
-for _ in range(n):
+for _ in range(3):
     graph += list(map(int, input().split()))
 
 def rotate():
