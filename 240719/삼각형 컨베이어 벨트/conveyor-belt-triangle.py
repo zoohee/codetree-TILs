@@ -1,25 +1,14 @@
 n, m = map(int, input().split())
 
-graph = []
-for _ in range(3):
-    graph += list(map(int, input().split()))
+one = list(map(int,input().split()))
+two = list(map(int,input().split()))
+three = list(map(int,input().split()))
 
-def rotate():
-    if len(graph) < m:
-        return
-        
-    temp = []
-    for i in range(1, m+1):
-        temp.append(graph[-i])
+for _ in range(m):
+    two.insert(0,one.pop())
+    three.insert(0,two.pop())
+    one.insert(0,three.pop())
 
-    for i in range(len(graph)-1, -1, -1):
-        graph[i] = graph[i-m]
-    
-    for i in range(m-1, -1, -1):
-        graph[i] = temp[m-1-i]
-
-rotate()
-for i in range(len(graph)):
-    if i!= 0 and i % n == 0:
-        print()
-    print(graph[i], end = " ")
+print(*one)
+print(*two)
+print(*three)
