@@ -13,7 +13,7 @@ def rotate():
         graph[i] = graph[i-m]
     
     for i in range(m-1, -1, -1):
-        graph[i] = temp[i-m+1]
+        graph[i] = temp[m-1-i]
 
 rotate()
 for i in range(len(graph)):
