@@ -1,23 +1,19 @@
 # 0:이동가능 1:벽(이동불가) 2:사람이서있음 3:비를피하는공간
 from collections import deque
 
-def bfs(a, b):
-    que = deque()
+def bfs(x, y):
+    que = deque([(x, y, 0)])
     visited = [[False] * n for _ in range(n)]
-    que.append((a, b, 0))
-    visited[a][b] = True
+    visited[x][y] = True
 
     while que:
         x, y, dist = que.popleft()
+        if graph[x][y] == 3:
+            return dist
 
         for d in range(4):
-            nx = x + dx[d]
-            ny = y + dy[d]
-
+            nx, ny = x + dx[d], y + dy[d]
             if 0 <= nx < n and 0 <= ny < n and not visited[nx][ny] and graph[nx][ny] != 1:
-                if graph[nx][ny] == 3:
-                    return dist+1
-
                 que.append((nx, ny, dist+1))
                 visited[nx][ny] = True
     
@@ -39,6 +35,6 @@ for i in range(n):
             people_cnt += 1
         
         if people_cnt == h:
-            for a in range(n):
-                print(*answer[a])
+            for row in answer:
+                print(*row)
             exit(0)
